@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Physics - Projectile Motion with Air Resistance">
+    <meta name="author" content="Rizky-Faiz">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/p5.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <title>Physics - Projectile Motion</title>
+</head>
+
+<body>
+    <div id="parameter" show='true'>
+        <div id="parameter-button"></div>
+        <div class="container">
+            <div class="main-box">
+                <div class="list">
+                    <div class="pre">
+                        <div class="title">Kecepatan awal</div>
+                        <div class="value">20</div>
+                        <span class="unit">m/s</span>
+                    </div>
+                    <input id="velocity" type="range" min="10" max="50" value="20" step="1" pattern="^[+]?\d+(\.\d+)?$">
+                </div>
+                <div class="list">
+                    <div class="pre">
+                        <div class="title" style="margin-right: 130px">Massa     </div>
+                        <div class="value">20</div>
+                        <span class="unit">kg</span>
+                    </div>
+                    <input id="mass" type="range" min="10" max="100"  value="20" step="1"  pattern="^[+]?\d+(\.\d+)?$">
+                </div>
+                <div class="list">
+                    <div class="pre">
+                        <div class="title" >Gravitasi</div>
+                        <div class="value">9.8</div>
+                        
+                    </div>
+                    <input id="gravity" type="range" min="5" max="10" step="0.1" value="9.8" pattern="^[+]?\d+(\.\d+)?$">
+                </div>
+                <div class="list">
+                    <div class="pre">
+                        <div class="title" style="margin-right: 155px">Sudut</div>
+                        <div class="value">45</div>
+                        <span class="unit">'</span>
+                    </div>
+                    <input id="degree" type="range" min="25" max="90" step="0. 1" value="45" pattern="^[+]?\d+(\.\d+)?$">
+                </div>
+                <div class="list">
+                    <div class="pre">
+                        <div class="title" style="margin-right: 135px">Tinggi</div>
+                        <div class="value">0</div>
+                        <span class="unit">m</span>
+                    </div>
+                    <input id="height" type="range" min="0" max="100" value="0" step="1" pattern="^[+]?\d+(\.\d+)?$">
+                </div>
+
+                <div class="result-box">
+                    <div class="result-title">Hasil</div>
+                    <div class="result-data">
+                        Jarak tempuh : <span id="distance-result">0</span> meter <br>
+                        Jarak waktu : <span id="time-result">0</span> detik
+                    </div>
+                </div>
+
+                <div class="list">
+                    <button id="start">Start</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/function.js"></script>
+    <script src="js/listen.js"></script>
+    <script src="js/class.js"></script>
+    <script src="js/sketch.js"></script>
+</body>
+
+</html>

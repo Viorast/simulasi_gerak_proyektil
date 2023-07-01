@@ -1,0 +1,241 @@
+// @mixin size($w, $h:$w) {
+//     width: $w;
+//     height: $h;
+// }
+
+// @mixin flex-box {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
+
+// $main-bgc:#303030bb;
+// $button-width: 13px;
+// $br: 8px;
+
+// * {
+//     box-sizing: border-box;
+// }
+
+// body,
+// html {
+//     @include size(100vw, 100vh);
+//     color: #ccc;
+//     margin: 0;
+//     overflow: hidden;
+//     background-color: #262626;
+// }
+
+// body,
+// main {
+//     @include flex-box();
+//     max-height: 100%;
+// }
+
+// canvas {
+//     box-sizing: border-box;
+//     border: 2px solid #4b4b4b;
+//     max-height: 100%;
+// }
+
+// #parameter,
+// #control {
+//     $width: 320px;
+//     @include flex-box();
+//     @include size($width, 500px);
+//     right: 0;
+//     position: absolute;
+//     transition: 200ms;
+//     transition-timing-function: linear;
+//     background-color: #aaaaaa4f;
+//     backdrop-filter: blur(4px);
+//     border-radius: $br 0 0 $br;
+//     overflow: hidden;
+
+//     &[show=false] {
+//         right: -$width + $button-width;
+//         height: 45px;
+//     }
+
+//     #parameter-button,
+//     #control-button {
+//         cursor: pointer;
+//         position: absolute;
+//         left: 0;
+//         width: $button-width;
+//         height: 100%;
+//         background-color: #555;
+//         transition: 100ms;
+
+//         &:hover {
+//             background-color: #aaaaaa4f;
+//         }
+//     }
+
+//     .container {
+//         @include size(100%);
+//         left: 0;
+//         padding: 10px;
+//         padding-left: 10px + $button-width;
+
+//         .main-box {
+//             @include size(100%);
+//             @include flex-box();
+//             overflow: hidden;
+//             background-color: $main-bgc;
+//             border-radius: $br;
+//             flex-wrap: wrap;
+
+//             .list {
+//                 @include flex-box();
+//                 width: 80%;
+//                 flex-wrap: wrap;
+
+//                 .pre {
+//                     @include flex-box();
+//                     justify-content: space-between;
+//                     width: 100%;
+//                 }
+
+//                 .title {
+//                     font-weight: bold;
+//                     font-size: 18px;
+//                 }
+
+//                 input {
+//                     background: none;
+//                     outline: none;
+//                     border: none;
+//                     width: 80%;
+//                     font-size: 16px;
+//                     color: #7e98ff;
+//                     border-bottom: 1px solid #5264ae;
+
+//                     &[type=range] {
+//                         cursor: pointer;
+//                     }
+//                 }
+
+//                 button {
+//                     outline: none;
+//                     cursor: pointer;
+//                     width: 80%;
+//                     padding: 5px 0;
+//                     height: 30px;
+//                     border-radius: 5px;
+//                     transition: 300ms;
+//                     color: #c9d1d9;
+//                     border: 2px solid #363b42;
+//                     background-color: #21262D;
+
+//                     &:hover {
+//                         border-color: #8b949e;
+//                         background-color: #30363d;
+//                     }
+
+//                     &:active {
+//                         background-color: #282e33;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// #control {
+//     $width: 320px;
+//     left: 0;
+//     border-radius: 0 $br $br 0;
+
+//     &[show=false] {
+//         left: -$width + $button-width;
+//         height: 45px;
+//     }
+
+//     .container {
+//         padding-left: 10px;
+//         padding-right: 10px + $button-width;
+//     }
+
+//     #control-button {
+//         left: unset;
+//         right: 0;
+//     }
+
+//     .main-box {
+//         padding: 10px 0;
+//         border-radius: 3px;
+//         margin-bottom: 10px;
+//         @include size(100%, auto !important);
+//     }
+// }
+
+// .radio-button {
+//     @include size(100%, auto);
+//     @include flex-box();
+//     justify-content: flex-start;
+//     position: relative;
+//     margin-top: 6px;
+
+//     input[type=radio] {
+//         position: absolute;
+//         visibility: hidden;
+
+//         &:checked {
+//             &~.check-radio {
+//                 border-color: #0DFF92;
+
+//                 &::before {
+//                     background-color: #0DFF92;
+//                 }
+//             }
+//         }
+//     }
+
+//     .check-radio {
+//         $scale: 16px;
+//         @include size($scale);
+
+//         position: absolute;
+//         transition: 300ms;
+//         display: inline-block;
+//         border: 2px solid #CCC;
+//         border-radius: $scale;
+//         margin: 5px 0 5px 15px;
+
+//         &::before {
+//             $size-in: $scale / 2;
+//             @include size($size-in);
+
+//             content: '';
+//             transition: 400ms;
+//             display: inline-block;
+//             position: absolute;
+//             top: ($scale - $size-in) / 4;
+//             left: ($scale - $size-in) / 4;
+//             border-radius: 100%;
+//         }
+//     }
+
+//     label {
+//         @include size(100%);
+
+//         display: block;
+//         padding-left: 35px;
+//         cursor: pointer;
+//         position: relative;
+//     }
+// }
+
+// .set-value {
+//     cursor: pointer;
+//     transition: 200ms;
+
+//     * {
+//         pointer-events: none;
+//     }
+
+//     &:hover {
+//         background-color: #5c5c5cbb !important;
+//     }
+// }
