@@ -45,7 +45,6 @@ let axis = () => {
     // 50 sumbu meter
     textSize(16);
     strokeWeight(3);
-    // fill('#F27477');
     fill('#0D1117');
     textAlign(CENTER);
     for (let bx = base * scale; bx < size.w; bx += base * scale) {
@@ -86,56 +85,6 @@ let axis = () => {
     text(textContent, width / 2, 10)
 }
 
-// let degreeAxis = () => {
-//     let boardCount = size.w / (base * scale);
-//     if (boardCount > 12) {
-//         base *= 2;
-//         boardCount /= 2;
-//     } else if (boardCount < 6) {
-//         base /= 2;
-//         boardCount *= 2;
-//     }
-
-//     // 10 Sumbu meter
-//     stroke('rgb(80,0,0)');
-//     strokeWeight(1);
-//     for (let bx = 0; bx < size.w; bx += xGrid / 5)
-//         line(bx, 0, bx, -size.h);
-//     for (let by = 0; by < size.h; by += base / 5 * scale)
-//         line(0, -by, size.w, -by);
-
-//     // 50 sumbu meter
-//     textSize(16);
-//     strokeWeight(3);
-//     fill('#F27477');
-//     textAlign(CENTER);
-//     for (let bx = 10; bx <= 90; bx += 10) {
-//         let posx = bx * xGrid / 10;
-//         stroke('rgb(160,0,0)');
-//         line(posx, 0, posx, -size.h);
-//         noStroke();
-//         text(bx + '°', posx, 16);
-//     }
-//     textAlign(RIGHT, CENTER);
-//     for (let by = base * scale; by < size.h; by += base * scale) {
-//         stroke('rgb(160,0,0)');
-//         line(0, -by, size.w, -by);
-//         noStroke();
-//         text(round(by / scale, 3), -5, -by);
-//     }
-
-//     // sumbu x y
-//     textAlign(CENTER, CENTER);
-//     textSize(16);
-//     fill('#F27477');
-//     stroke('red');
-//     strokeWeight(5);
-//     line(0, boundary, 0, -size.h);
-//     line(-boundary, 0, size.w, 0);
-//     noStroke();
-//     text(0, -15, 15);
-// }
-
 let drawArrow = (base, vec, color) => {
     let arrowSize = 7;
     push();
@@ -149,3 +98,28 @@ let drawArrow = (base, vec, color) => {
     triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);
     pop();
 }
+
+// Mengatur ulang bola dan lintasan bola ke kondisi awal
+const resetBalls = () => {
+    balls.forEach(ball => {
+        ball.isUpdate = false;
+        ball.data = [];
+        ball.pathData = [];
+        ball.pos.x = ball.x;
+        ball.pos.y = ball.y;
+    });
+
+    // Menghapus hasil jarak tempuh dan jarak waktu
+    const distanceResult = document.getElementById('distance-result');
+    distanceResult.textContent = "0";
+    const timeResult = document.getElementById('time-result');
+    timeResult.textContent = "0";
+};
+
+// Mendengarkan klik tombol restart
+$('#restart').click(() => {
+    resetBalls();
+});
+
+// Fungsi setup dan draw lainnya tetap sama seperti sebelumnya
+

@@ -164,15 +164,32 @@ canvas {
 #parameter .container .main-box .list button {
   outline: none;
   cursor: pointer;
-  width: 80%;
+  width: 120px;
   padding: 5px 0;
   height: 50px;
   border-radius: 5px;
   -webkit-transition: 300ms;
   transition: 300ms;
-  color: #c9d1d9;
   border: 2px solid #363b42;
-  background-color: #21262D;
+  background-color: #212d24;
+}
+
+.button-container {
+  display: flex; /* Menggunakan flexbox */
+  gap: 10px; /* Menambahkan jarak antara tombol */
+  justify-content: center; /* Pusatkan tombol secara horizontal */
+}
+
+#start, #restart {
+  flex: 1; /* Membagi ruang secara proporsional antara kedua tombol */
+  width: 100%; /* Mengatur lebar tombol */
+}
+
+.start-button {
+  color: #09f31c;
+}
+.restart-button {
+  color: #e90f0f;
 }
 
 #parameter .container .main-box .list button:hover {
@@ -208,33 +225,6 @@ canvas {
   color: #7e98ff;
 }
 
-/* #control {
-  left: 0;
-  border-radius: 0 8px 8px 0;
-}
-
-#control[show=false] {
-  left: -307px;
-  height: 45px;
-}
-
-#control .container {
-  padding-left: 10px;
-  padding-right: 23px;
-}
-
-#control #control-button {
-  left: unset;
-  right: 0;
-}
-
-#control .main-box {
-  padding: 10px 0;
-  border-radius: 3px;
-  margin-bottom: 10px;
-  width: 100%;
-  height: auto !important;
-} */
 
 .radio-button {
   width: 100%;
