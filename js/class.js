@@ -35,6 +35,30 @@ class Ball {
         this.max.degree = atan(this.v.val / sqrt(pow(this.v.val, 2) + 2 * this.g * this.y));
         this.init();
     }
+    calculateMaxDistance() {
+        let 𝛼 = this.degree * (Math.PI / 180);
+        let a = -this.g/2;
+        let b = this.v.val * Math.sin(𝛼);
+        let c = this.y;
+        let bb4ac = sqrt(pow(b, 2) - 4 * a * c);
+        let time = max((-b + bb4ac) / (2 * a), (-b - bb4ac) / (2 * a));
+
+        let X0 = 0;
+        let V0x = this.v.val * Math.cos(𝛼);
+        let MaxDistance = X0 + V0x*time ;
+        return MaxDistance;
+
+
+    }
+    calculateMaxTime() {
+        let 𝛼 = this.degree * (Math.PI / 180);
+        let a = -this.g/2;
+        let b = this.v.val * Math.sin(𝛼);
+        let c = this.y;
+        let bb4ac = sqrt(pow(b, 2) - 4 * a * c);
+        let maxTime = max((-b + bb4ac) / (2 * a), (-b - bb4ac) / (2 * a));
+        return maxTime;
+    }
     init() {
         // Durasi Terbang
         this.overTime = this.projectTime(); // Waktu berakhir
@@ -55,22 +79,24 @@ class Ball {
             this.pos.y += newPos.y;
             this.data.push(this.position);
         }
-        this.totalTime = this.pastTime; // Menggunakan nilai pastTime sebagai waktu total
+        const maxDistance = this.calculateMaxDistance();
+        const maxTime = this.calculateMaxTime();
+        // this.totalTime = this.pastTime; // Menggunakan nilai pastTime sebagai waktu total
         this.pos.x = this.x;
         this.pos.y = this.y;
         this.pathGrid = floor(this.data.length / 200); // Jumlah titik yang diambil
         this.pathIndex = 0;
 
          // Menghitung jarak tempuh
-    let totalDistance = this.data[this.data.length - 1].x - this.data[0].x;
+    // let totalDistance = this.data[this.data.length - 1].x - this.data[0].x;
 
     // Menampilkan hasil jarak tempuh di elemen HTML dengan ID 'distance-result'
     const distanceResult = document.getElementById('distance-result');
-    distanceResult.textContent = totalDistance.toFixed(2) ;   
+    distanceResult.textContent = maxDistance.toFixed(2) ;   
 
     // Menampilkan hasil jarak waktu di elemen HTML dengan ID 'time-result'
     const timeResult = document.getElementById('time-result');
-    timeResult.textContent = this.totalTime.toFixed(2) ;
+    timeResult.textContent = maxTime.toFixed(2) ;
 
     }
     projectTime(vy = this.v.y) {
